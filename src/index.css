@@ -5,8 +5,9 @@
   padding: 0;
 }
 
-.body {
+body {
   font-family: sans-serif;
+  background: rgb(43, 43, 43);
 }
 
 .header {
@@ -16,21 +17,99 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 10%;
+  align-items: center;
 }
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  height: 50px;
+  background: #3f3f3f;
+  color: white;
+  justify-content: center;
+}
+
+.filter input {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.filter span{
+  font-size: 12px;
+}
+
 
 .container{
   max-width: 800px;
-  margin: 30px auto;
+  margin: 10px auto;
   overflow: auto;
   min-height: 300px;
   padding: 30px;
   border-radius: 5px;
 }
 
-.todo {
-  background: #f4f4f4;
-  margin: 5px;
-  padding: 10px 20px;
+.addtodo-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 15px 5px;
+  align-items: center;
+}
+
+.addtodo-container p {
+  color: white;
+  font-size: 24px;
+}
+
+.addTodo input {
+  margin-right: 10px;
+  height: 35px;
+  width: 200px;
+}
+.addTodo button {
+  background: blueviolet;
+  color: white;
+  height: 35px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #3f3f3f;
+  color: white;
+  margin: 5px 5px 10px;
+  padding: 10px 20px;
+  height: 50px;
+}
+
+.todo input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.todo h4 {
+  flex: 1
+}
+
+@media (max-width: 580px) {
+  .addtodo-container{
+    flex-direction: column;
+  }
+
+  .addtodo-container p {
+    margin-bottom: 5px;
+  }
+  .addTodo input {
+    width: 100%;
+    margin-bottom: 10px;;
+  }
+  .addTodo button {
+    width: 100%;
+  }
 }
