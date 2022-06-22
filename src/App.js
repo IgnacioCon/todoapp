@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header/Header'
+import Todos from './components/todos/Todos'
+import Filter from './components/filter/Filter'
+import AddTodo from './components/addtodo/AddTodo'
 
 function App() {
+  const todos = [
+    {text: "simple todo"},
+    {text: "trying to work"}
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Filter />
+      <div className='container'>
+        <div>
+          <p>You have 2 todos left</p>
+          <AddTodo />
+        </div>
+        <Todos todos={todos} />
+      </div>
+   
+    </>
   );
 }
 
