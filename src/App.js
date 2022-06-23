@@ -4,7 +4,7 @@ import Todos from './components/todos/Todos'
 import Filter from './components/filter/Filter'
 import AddTodo from './components/addtodo/AddTodo'
 
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 function App() {
   const todos = [
@@ -14,8 +14,17 @@ function App() {
   ]
 
   const [todoArray, setTodos] = useState(todos)
+  const [leftTodo, setLeftTodo] = useState(0)
 
-  
+  useEffect(() => {
+    setLeftTodo(todosLeft())
+  }, [todoArray])
+
+  const addTodo = (text) => {
+    const newID = todoArray[todoArray.length -1].id + 1
+    const newTodo = {id: newID, text: text, done: false}
+    setTodos([...todoArray, newTodo])
+  }
   const toggleTodo = (id) => {
     const todoToToggle = todoArray.filter(todo => todo.id === id)
     const updatedTodo = {...todoToToggle, done: !todoToToggle.done}
@@ -27,14 +36,18 @@ function App() {
     setTodos(todoArray.filter((todo) => todo.id !== id))
   }
 
+  const todosLeft = () => {
+    return todoArray.reduce((sum, el) => el.done ? sum : sum+1, 0)
+  }
+
   return (
     <>
       <Header />
       <Filter />
       <div className='container'>
         <div className='addtodo-container'>
-          <p>You have {todoArray.length} todos left</p>
-          <AddTodo />
+          <p>You have {leftTodo} todos left</p>
+          <AddTodo onAdd={addTodo} />
         </div>
         <Todos 
           todos={todoArray} 

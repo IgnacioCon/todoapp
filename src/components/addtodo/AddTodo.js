@@ -1,11 +1,32 @@
+import {useState} from 'react'
 
+const AddTodo = ({onAdd}) => {
 
-const AddTodo = () => {
+  const [text, setText] = useState('')
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    if(!text) {
+      alert('Todo can\'t be empty!')
+    }
+
+    onAdd(text)
+    setText('')
+  }
+
   return (
-    <div className="addTodo">
-      <input type="text" placeholder="New Todo..."/>
-      <button>Submit</button>
-    </div>
+    <form onSubmit={onSubmit}>
+      <div className="addTodo">
+        <input 
+          type="text" 
+          placeholder="New Todo..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button>Submit</button>
+      </div>
+    </form>
   )
 }
 
