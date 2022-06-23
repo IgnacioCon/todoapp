@@ -2,10 +2,10 @@
 
 const AddTodo = () => {
   return (
-    <>
-      <input type="text"/>
+    <div className="addTodo">
+      <input type="text" placeholder="New Todo..."/>
       <button>Submit</button>
-    </>
+    </div>
   )
 }
 
