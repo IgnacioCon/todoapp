@@ -1,7 +1,7 @@
 import { FaTimes } from 'react-icons/fa'
 import {useState} from 'react'
 
-const Todo = ({todo, onToggle}) => {
+const Todo = ({todo, onToggle, onDelete}) => {
   
   return (
     <div className="todo">
@@ -9,6 +9,7 @@ const Todo = ({todo, onToggle}) => {
       <h4 className={`todo-text ${todo.done ? 'completed': ''}`}>{todo.text}</h4>
       <FaTimes
         style={{color: 'red', cursor: 'pointer'}}
+        onClick={() => onDelete(todo.id)}
       />
     </div>
   )

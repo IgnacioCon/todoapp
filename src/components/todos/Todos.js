@@ -1,6 +1,6 @@
 import Todo from './Todo'
 
-const Todos = ({todos, onToggle}) => {
+const Todos = ({todos, onToggle, onDelete}) => {
   return (
     <> 
       {todos.map( (todo) => (
@@ -8,6 +8,7 @@ const Todos = ({todos, onToggle}) => {
           key={todo.id}
           todo={todo}
           onToggle={onToggle}
+          onDelete={onDelete}
         />
       ))}
     </>

@@ -23,7 +23,9 @@ function App() {
     setTodos(todoArray.map((todo) => todo.id === id ? {...todo, done: !todo.done} : todo ))
   }
 
-  
+  const deleteTodo = (id) => {
+    setTodos(todoArray.filter((todo) => todo.id !== id))
+  }
 
   return (
     <>
@@ -34,7 +36,11 @@ function App() {
           <p>You have {todoArray.length} todos left</p>
           <AddTodo />
         </div>
-        <Todos todos={todoArray} onToggle={toggleTodo}/>
+        <Todos 
+          todos={todoArray} 
+          onToggle={toggleTodo} 
+          onDelete={deleteTodo}
+        />
       </div>
    
     </>
