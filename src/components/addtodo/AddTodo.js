@@ -9,6 +9,7 @@ const AddTodo = ({onAdd}) => {
 
     if(!text) {
       alert('Todo can\'t be empty!')
+      return
     }
 
     onAdd(text)
