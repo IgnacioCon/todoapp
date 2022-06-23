@@ -14,7 +14,9 @@ function App() {
   ]
 
   const [todoArray, setTodos] = useState(todos)
+  const [filteredTodos, setFilteredTodos] = useState(todos)
   const [leftTodo, setLeftTodo] = useState(0)
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     setLeftTodo(todosLeft())
@@ -36,6 +38,22 @@ function App() {
     setTodos(todoArray.filter((todo) => todo.id !== id))
   }
 
+  const filterTodos = (termToSearch) => {
+    console.log(termToSearch)
+
+    const searchTerm = termToSearch.toString().toLowerCase().trim();
+    if (searchTerm === '') {
+      setSearch(termToSearch)
+      setFilteredTodos(todoArray)
+      return
+    }
+
+    const filtered = todoArray.filter((todo) => todo.text.toLowerCase().includes(searchTerm))
+    
+    setSearch(termToSearch)
+    setFilteredTodos(filtered)
+  }
+
   const todosLeft = () => {
     return todoArray.reduce((sum, el) => el.done ? sum : sum+1, 0)
   }
@@ -43,14 +61,14 @@ function App() {
   return (
     <>
       <Header />
-      <Filter />
+      <Filter onFilter={filterTodos} />
       <div className='container'>
         <div className='addtodo-container'>
           <p>You have {leftTodo} todos left</p>
           <AddTodo onAdd={addTodo} />
         </div>
         <Todos 
-          todos={todoArray} 
+          todos={filteredTodos} 
           onToggle={toggleTodo} 
           onDelete={deleteTodo}
         />
