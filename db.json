@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "simple todo",
+      "done": false
+    },
+    {
+      "id": 2,
+      "text": "trying to work",
+      "done": true
+    },
+    {
+      "text": "I am trying to get it working",
+      "done": true,
+      "id": 3
+    },
+    {
+      "text": "node js",
+      "done": true,
+      "id": 4
+    },
+    {
+      "text": "look",
+      "done": false,
+      "id": 6
+    }
+  ]
+}

@@ -1,12 +1,15 @@
 import { FaTimes } from 'react-icons/fa'
+import {useState} from 'react'
 
-const Todo = ({todo}) => {
+const Todo = ({todo, onToggle, onDelete}) => {
+  
   return (
     <div className="todo">
-      <input type="checkbox" />
-      <h4>{todo.text}</h4>
+      <input type="checkbox" checked={todo.done} onChange={() => onToggle(todo.id)}/>
+      <h4 className={`todo-text ${todo.done ? 'completed': ''}`}>{todo.text}</h4>
       <FaTimes
         style={{color: 'red', cursor: 'pointer'}}
+        onClick={() => onDelete(todo.id)}
       />
     </div>
   )
