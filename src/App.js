@@ -8,7 +8,6 @@ import {useEffect, useState} from 'react'
 
 function App() {
  
-
   const [todos, setTodos] = useState([])
   const [search, setSearch] = useState('')
 
@@ -114,7 +113,6 @@ function App() {
           onDelete={deleteTodo}
         />
       </div>
-   
     </>
   );
 }
