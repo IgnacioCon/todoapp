@@ -7,7 +7,7 @@ const AddTodo = ({onAdd}) => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    if(!text) {
+    if(!text.trim()) {
       alert('Todo can\'t be empty!')
       return
     }
