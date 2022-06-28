@@ -1,3 +1,4 @@
+import ITodo from '../../interfaces/todo.interface';
 import Todo from './Todo'
 
 const Todos = ({todos, onToggle, onDelete}) => {
