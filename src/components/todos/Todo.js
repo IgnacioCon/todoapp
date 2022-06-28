@@ -1,8 +1,6 @@
 import { FaTimes } from 'react-icons/fa'
-import {useState} from 'react'
 
 const Todo = ({todo, onToggle, onDelete}) => {
-  
   return (
     <div className="todo">
       <input type="checkbox" checked={todo.done} onChange={() => onToggle(todo.id)}/>
